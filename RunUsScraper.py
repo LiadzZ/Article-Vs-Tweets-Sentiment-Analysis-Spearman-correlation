@@ -13,7 +13,7 @@ db = client.USArticles
 def run_scraper (scraper):
     scraper.get_pages()
     data = scraper.newspaper_parser()
-    #print(data)
+    
     scraper.write_to_mongo(data, db.articles)
 
 
