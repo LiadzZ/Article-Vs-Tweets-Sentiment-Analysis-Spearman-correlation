@@ -66,11 +66,7 @@ class NewspaperScraper:
                 print(e)
                 time.sleep(10)
                 #continue
-            # temp = l.strip('https://www.latimes.com/')
-            # print("temp:",temp)
-            # if "/" in temp:
-            #     category = temp.split('/')[0]
-            #     print("CATEGORYYYY : ", category)
+            
 
 
 
@@ -90,14 +86,10 @@ class NewspaperScraper:
 
             }
 
-            print(data['title'])
-            print(data['category'])
-            # print
-            # print
+            
             if data:
                 results.append(data)
                 count += 1
-                print(count)
 
 
             time.sleep(sleep_time)
@@ -195,15 +187,10 @@ class NewspaperScraperWithAuthentication(NewspaperScraper):
                 'html': article.html
             }
 
-            # print data['title']
-            # print data['text']
-            # print
-            # print
             results.append(data)
             time.sleep(sleep_time)
 
             count += 1
-            # print count
 
         return results
 
@@ -225,7 +212,6 @@ class ChicagoTribuneScraper(NewspaperScraper):
         # System.setProperty("webdriver.gecko.driver", "E:\\GekoDriver\\geckodriver-v0.15.0-win64\\geckodriver.exe");
         #
         # file = str(os.getcwd()) + "/geckodriver.exe"
-        # print("Test:",file)
         # browser = webdriver.Firefox(executable_path=file)
 
         links = []
