@@ -67,21 +67,7 @@ with open(file_name, 'w') as f:
 
 #text = keywords_list[1]
 
-#print(all_text)
-# t = "Hello how are you Hello yoday you okay or are you not"
-# wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white',max_words=50,collocations=False, width=3000, height=3000).generate(t)
-# plt.imshow(wordcloud)
-# plt.axis('off')
-# plt.show()
 
-
-        #print(x['keywords'])
-
-    #
-    #
-    # for x in articles.find({"website": link}, {"_id": 0,"website": 1, "name": 1, "link": 1}):
-    #     if ".com" in x['link']: # i dont want .co.il
-    #         categories_link[x['name']] = x['link']
 
 
 
@@ -116,15 +102,9 @@ for article in total_articles:
             #compound += vs["compound"] / sent_len
             compound2 += vs["compound"]
 
-            print("pos:", pos)
-            print("neg:", neg)
-            print("neu:", neu)
-            print("compound:", compound2)
+           
             idx += 1
 
-            print("--------------")
-            print(vs)
-            print("--------------")
 
     print("Final result for the article:")
     print("idx:",idx)
