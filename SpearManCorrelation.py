@@ -1,6 +1,6 @@
 import warnings
 warnings.filterwarnings("ignore")
-# load libraries
+
 import matplotlib.pyplot as plt
 import scipy.stats
 import pandas as pd
