@@ -1,4 +1,4 @@
-# Article-Vs-Tweets-Sentiment-Analysis-Spearman-correlation
+# Articles-Vs-Tweets-Sentiment-Analysis-Spearman-correlation
 Using R and Python
 
 
