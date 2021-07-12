@@ -11,7 +11,7 @@ from pymongo import MongoClient
 #
 # import seaborn as sns
 
-client = MongoClient("mongodb+srv://Test1:Test1@cluster0-pwaip.mongodb.net/test?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://")
 
 db = client.USArticles
 
