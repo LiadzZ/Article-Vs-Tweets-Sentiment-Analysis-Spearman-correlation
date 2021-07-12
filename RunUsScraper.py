@@ -3,7 +3,7 @@ from pymongo import MongoClient
 
 
 
-client = MongoClient("mongodb+srv://Test1:Test1@cluster0-pwaip.mongodb.net/test?retryWrites=true&w=majority")
+client = MongoClient("mongodb+srv://")
 
 db = client.USArticles
 
