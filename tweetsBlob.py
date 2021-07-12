@@ -40,7 +40,6 @@ def printmd(string, color=None):
     display(Markdown(colorstr))
 def apply_blob(sentence):
     temp = TextBlob(sentence).sentiment[0]
-    print("TExtBlob:",temp)
     if temp == 0.0:
         return "Neutral" # Neutral
     elif temp >= 0.0:
@@ -70,12 +69,7 @@ def read_tweets(search, limit=1,until = "2020-05-26 00:00:00"):
 
     with HiddenPrints():
         twint.run.Search(c)
-        #print(twint.run.Search(c))
 
-    # print("------------------------------------------")
-    # print("Data:")
-    # print(data)
-    # print("------------------------------------------")
     # Transform tweets to pandas DF
     # columns = ["date", "username", "tweet", "hashtags", "nlikes"]
     # df_pd = twint.output.panda.Tweets_df[columns]
@@ -91,7 +85,7 @@ def sentiment_analysis():
     data.dropna(inplace=True)
     pattern = re.compile(r"[A-Za-z0-9\-]{1,50}")
     data['clean_tweet'] = data['tweet'].str.findall(pattern).str.join(' ')
-    # print(data.head())
+   
     # Transform Pandas DF to Optimus/Spark DF
     # df = op.create.data_frame(pdf=df_pd)
     # #
@@ -103,13 +97,7 @@ def sentiment_analysis():
 
     return data
 
-#
-# for x in range(5):
-#     day = 25
-#     day = day + x
-#     day = str(day) + " 00:00:00"
-#     date = "2020-05-" + day
-#     read_tweets("covid", limit=1500,until=date)
+
 
 
 df_result = sentiment_analysis()
@@ -118,33 +106,16 @@ tweets = df_result['clean_tweet'].tolist()
 sent_list = []
 for tweet in tweets:
     answer = apply_blob(tweet)
-    #print("Tweet:",tweet)
     sent_list.append(answer)
-    #print("Senti:", answer)
 
 df_result["sentiment"] = sent_list
 df_result.to_csv("TopPopularAfter25result.csv")
 
-# print("df_result.count():",df_result.count())
-# print("df_result.printSchema():",df_result.printSchema())
-#
+
 # #
 # df_res_pandas = df_result.toPandas()
 #
 # sns.distplot(df_res_pandas['sentiment'])
 # sns.set(rc={'figure.figsize':(11.7,8.27)})
 #
-#
-# print(sns)
 
-# for tweet in tweets:
-#     print(tweet)
-#     analysis = TextBlob(tweet)
-#     print(analysis.sentiment)
-#     if analysis.sentiment[0]>0:
-#         printmd('Positive', color="green")
-#     elif analysis.sentiment[0]<0:
-#         printmd('Negative', color="red")
-#     else:
-#         printmd("Neutral", color="grey")
-#         print("")
